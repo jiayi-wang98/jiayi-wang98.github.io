@@ -7,7 +7,7 @@
 <!-- TemplateEndEditable -->
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->
-<link href="../style/index.css" rel="stylesheet" type="text/css">
+<link href="../index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -17,11 +17,11 @@
       <td height="315" colspan="2"><table width="100%" border="1">
         <tbody>
           <tr>
-            <td height="220" colspan="5"><img src="../image/headwhite.png" width="1380" height="166" alt=""/></td>
+            <td height="220" colspan="5"><img src="../headwhite.png" width="1380" height="166" alt=""/></td>
           </tr>
           <tr>
-            <td width="20%" height="72" align="center" valign="bottom" style="font-family: '楷体'; font-size: 24px; text-align: center; color: #FFFFFF;"><p><a href="../pages/index.html">实时数据</a></p>
-              <a href="../pages/index.html">
+            <td width="20%" height="72" align="center" valign="bottom" style="font-family: '楷体'; font-size: 24px; text-align: center; color: #FFFFFF;"><p><a href="../index.html">实时数据</a></p>
+              <a href="../index.html">
                 <p>Real-time Data </p>
               </a></td>
             <td width="20%" style="font-size: 24px; font-family: '楷体'; text-align: center;"><p><a href="../pages/datahistory.html">历史数据</a></p>
