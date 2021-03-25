@@ -1,0 +1,179 @@
+﻿<!doctype html>
+<html><!-- InstanceBegin template="/Templates/tpl.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>RealtimeData-高压无线测量系统</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="../style/index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="1336" height="925" border="1" align="center">
+  <tbody>
+    <tr>
+      <td height="315" colspan="2"><table width="100%" border="1">
+        <tbody>
+          <tr>
+            <td height="220" colspan="5"><img src="../image/headwhite.png" width="1380" height="166" alt=""/></td>
+          </tr>
+        <tr>
+          <td width="20%" valign="bottom" style="font-family: '楷体'; font-size: 24px; text-align: center;"><p><a href="index.html">实时数据</a></p>
+            <a href="index.html">
+              <p>Real-time Data </p>
+            </a></td>
+          <td width="20%" style="font-size: 24px; font-family: '楷体'; text-align: center;"><p><a href="datahistory.html">历史数据</a></p>
+            <a href="datahistory.html">
+              <p>Data History</p>
+            </a></td>
+          <td width="20%" style="font-size: 24px; font-family: '楷体'; text-align: center;"><p><a href="wechatprogram.html">微信小程序</a></p>
+            <a href="wechatprogram.html">
+              <p>Wechat Program</p>
+            </a></td>
+          <td width="20%" style="font-size: 24px; font-family: '楷体'; text-align: center;"><p><a href="developer.html">开发人员</a></p>
+            <a href="developer.html">
+              <p>Developer</p>
+            </a></td>
+          <td width="20%" style="font-size: 24px; font-family: '楷体'; text-align: center;"><p><a href="subsidize.html">赞助我们</a></p>
+            <a href="subsidize.html">
+              <p>Subsidize</p>
+            </a></td>
+        </tr>
+      </table></td>
+    </tr>
+  <!-- InstanceBeginEditable name="region" -->
+    <tr>
+      <td width="659" height="576"><table width="100%" border="1" id="data">
+        <tbody>
+          <tr>
+            <td height="60">数值名称</td>
+            <td width="25%">数值</td>
+            <td width="26%">单位</td>
+            <td width="24%">是否正常</td>
+          </tr>
+          <tr>
+            <td height="60">当前时间(t)</td>
+            <td width="25%" id="time">&nbsp;</td>
+            <td width="26%">秒/s</td>
+            <td width="24%">是</td>
+          </tr>
+          <tr>
+            <td height="60">电压有效值(Vrms)</td>
+            <td id="voltage">&nbsp;</td>
+            <td>伏特/V</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="60">电流有效值(Irms)</td>
+            <td id="current">&nbsp;</td>
+            <td>安培/A</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="60">视在功率(S)</td>
+            <td id="spower">&nbsp;</td>
+            <td>伏安/VA</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="60">有功功率(P)</td>
+            <td id="ppower">&nbsp;</td>
+            <td>瓦/W</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="60">无功功率(Q)</td>
+            <td id="qpower">&nbsp;</td>
+            <td>乏/Var</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="61">功率因数(λ)</td>
+            <td id="pf">&nbsp;</td>
+            <td>/</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td height="62">谐波因数</td>
+            <td id="hf">&nbsp;</td>
+            <td>/</td>
+            <td>是</td>
+          </tr>
+        </tbody>
+      </table></td>
+      <td width="661"><table width="100%" border="1">
+        <tbody>
+          <tr>
+            <td height="60" colspan="2" style="font-size: 36px">Voltage/Current Dynamic</td>
+          </tr>
+          <tr>
+         
+            <td width="100%" style="font-family: '楷体'; font-size: 36px;">实时电压电流</td>
+          </tr>
+         <tr>
+         
+            <td height="480" id="currentimage"><img src="../image/vimg.jpg" alt="" width="600" height="480" id="ipic"/></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+    <!-- InstanceEndEditable -->
+    <tr>
+   <td width="172" colspan="6" data-reactid=".0.0.2.0.3.1.0.1.1.0.1.0.0"><span data-reactid=".0.0.2.0.3.1.0.1.1.0.1.0.0.0"> </span>                <div data-reactid=".0.0.2.0.3.1.0.1.1.0.1.1:0.$beianId.0"><a href="http://www.beian.miit.gov.cn/">苏ICP备19058337号-1</a></div></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+var myVar=setInterval(function(){myTimer()},1000);//0.2秒刷新一次
+function myTimer(){
+	var d=new Date();
+	var t=d.toLocaleTimeString();
+	document.getElementById("time").innerHTML=t;
+
+        var oimg=document.getElementById("ipic");
+        oimg.src="../image/vimg.jpg?"+Math.random();
+//http请求xml文件
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      myFunction(this);
+    }
+  }
+    xmlhttp.open("GET","../circuitdata/datarecv.xml",true);
+    xmlhttp.send();
+
+
+    function myFunction(xml) {
+    var xmlDoc = xml.responseXML;
+    document.getElementById("voltage").innerHTML=
+    xmlDoc.getElementsByTagName("voltage")[0].childNodes[0].nodeValue;
+    document.getElementById("current").innerHTML=
+    xmlDoc.getElementsByTagName("current")[0].childNodes[0].nodeValue;
+    document.getElementById("spower").innerHTML=
+    xmlDoc.getElementsByTagName("spower")[0].childNodes[0].nodeValue;
+    document.getElementById("ppower").innerHTML=
+    xmlDoc.getElementsByTagName("ppower")[0].childNodes[0].nodeValue;
+    document.getElementById("qpower").innerHTML=
+    xmlDoc.getElementsByTagName("qpower")[0].childNodes[0].nodeValue;
+    document.getElementById("pf").innerHTML=
+    xmlDoc.getElementsByTagName("pf")[0].childNodes[0].nodeValue;
+    document.getElementById("hf").innerHTML=
+    xmlDoc.getElementsByTagName("distortion")[0].childNodes[0].nodeValue; 
+ }
+}
+</script>
+</body>
+<!-- InstanceEnd --></html>
