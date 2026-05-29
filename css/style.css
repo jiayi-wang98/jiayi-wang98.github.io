@@ -132,9 +132,14 @@ a:hover { text-decoration: underline; }
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
 }
+.avatar {
+  display: block; width: 150px; height: 150px; margin: 0 auto 18px;
+  border-radius: 50%; object-fit: cover; object-position: center 28%;
+  border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent), var(--shadow);
+}
 .hero-card h3 {
   margin: 0 0 14px; font-size: .82rem; text-transform: uppercase;
-  letter-spacing: .07em; color: var(--muted);
+  letter-spacing: .07em; color: var(--muted); text-align: center;
 }
 .facts { margin: 0; display: grid; gap: 14px; }
 .facts div { display: grid; }
