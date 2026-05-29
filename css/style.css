@@ -56,6 +56,17 @@ a:hover { text-decoration: underline; }
   text-decoration-thickness: 1px;
 }
 .hero-meta a { color: var(--accent); font-weight: 600; }
+
+/* Icon links (GitHub / LinkedIn) */
+.hero-links a.iconlink { display: inline-flex; align-items: center; gap: .4em; text-decoration: none; }
+.iconlink svg { width: 1.05em; height: 1.05em; flex: none; }
+.iconlink span {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-underline-offset: 2px; text-decoration-thickness: 1px;
+}
+.iconlink:hover span { text-decoration-color: var(--accent); }
+.btn svg { width: 1.05em; height: 1.05em; flex: none; }
 .hero-meta a:hover, .hero-links a:hover, .tl-what a:hover, .project-meta a:hover {
   text-decoration-color: var(--accent);
 }
