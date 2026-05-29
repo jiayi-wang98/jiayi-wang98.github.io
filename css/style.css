@@ -112,7 +112,7 @@ a:hover { text-decoration: underline; }
 }
 .hero-tagline { font-size: 1.12rem; color: var(--text-soft); margin: 0 0 20px; max-width: 36em; }
 .hero-tagline strong { color: var(--text); font-weight: 600; }
-.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: .92rem; margin-bottom: 24px; }
+.hero-meta { display: flex; flex-direction: column; gap: 6px; color: var(--muted); font-size: .92rem; margin-bottom: 24px; }
 .hero-cta { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
 .hero-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: .9rem; }
 .hero-links a { color: var(--text-soft); }
