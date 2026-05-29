@@ -48,6 +48,18 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* Inline prose links — make them clearly clickable */
+.hero-meta a, .hero-links a, .tl-what a, .project-meta a, .section-lead a, .pub-authors a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.hero-meta a { color: var(--accent); font-weight: 600; }
+.hero-meta a:hover, .hero-links a:hover, .tl-what a:hover, .project-meta a:hover {
+  text-decoration-color: var(--accent);
+}
+
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 .muted { color: var(--muted); }
