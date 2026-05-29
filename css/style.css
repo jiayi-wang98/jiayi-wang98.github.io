@@ -110,6 +110,7 @@ a:hover { text-decoration: underline; }
   font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1.05; margin: 0 0 16px;
   letter-spacing: -.02em; font-weight: 600;
 }
+.name-zh { font-size: .5em; font-weight: 500; color: var(--muted); margin-left: .35em; white-space: nowrap; letter-spacing: .02em; }
 .hero-tagline { font-size: 1.12rem; color: var(--text-soft); margin: 0 0 20px; max-width: 36em; }
 .hero-tagline strong { color: var(--text); font-weight: 600; }
 .hero-meta { display: flex; flex-direction: column; gap: 6px; color: var(--muted); font-size: .92rem; margin-bottom: 24px; }
