@@ -57,16 +57,18 @@ a:hover { text-decoration: underline; }
 }
 .hero-meta a { color: var(--accent); font-weight: 600; }
 
-/* Icon links (GitHub / LinkedIn) */
+/* Icon links (email / GitHub / LinkedIn / PNCEL) */
 .hero-links a.iconlink { display: inline-flex; align-items: center; gap: .4em; text-decoration: none; }
-.iconlink svg { width: 1.05em; height: 1.05em; flex: none; }
+.iconlink svg, .iconlink .ico-img { width: .9em; height: .9em; flex: none; }
+.iconlink .ico-img { object-fit: contain; border-radius: 2px; }
 .iconlink span {
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
   text-underline-offset: 2px; text-decoration-thickness: 1px;
 }
 .iconlink:hover span { text-decoration-color: var(--accent); }
-.btn svg { width: 1.05em; height: 1.05em; flex: none; }
+.btn svg, .btn .ico-img { width: .95em; height: .95em; flex: none; }
+.btn .ico-img { object-fit: contain; }
 .hero-meta a:hover, .hero-links a:hover, .tl-what a:hover, .project-meta a:hover {
   text-decoration-color: var(--accent);
 }
