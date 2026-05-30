@@ -238,6 +238,8 @@ a:hover { text-decoration: underline; }
   display: inline-block; font-size: .72rem; font-weight: 700;
   padding: 2px 9px; border-radius: 999px; letter-spacing: .01em;
 }
+a.badge { text-decoration: none; transition: filter .15s ease; }
+a.badge:hover { text-decoration: none; filter: brightness(1.12); }
 .badge-conf { background: var(--accent); color: #fff; }
 .badge-ws { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
 .badge-review { background: var(--gold); color: #2a2410; }
