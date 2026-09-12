@@ -8,17 +8,20 @@
   // ---------- Theme ----------
   var root = document.documentElement;
   var toggle = document.getElementById("themeToggle");
-  var iconEl = toggle ? toggle.querySelector(".theme-icon") : null;
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
-    if (iconEl) iconEl.textContent = theme === "dark" ? "☀️" : "🌙";
+    if (toggle) {
+      var label = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("title", label);
+    }
   }
 
   var saved = null;
   try { saved = localStorage.getItem("theme"); } catch (e) {}
   var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(saved || (prefersDark ? "dark" : "light"));
+  applyTheme(saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light"));
 
   if (toggle) {
     toggle.addEventListener("click", function () {
@@ -42,6 +45,13 @@
         menuToggle.setAttribute("aria-expanded", "false");
       }
     });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.focus();
+      }
+    });
   }
 
   // ---------- Active section highlight ----------
@@ -57,11 +67,10 @@
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          links.forEach(function (a) { a.style.color = ""; a.style.background = ""; });
+          links.forEach(function (a) { a.removeAttribute("aria-current"); });
           var active = map[entry.target.id];
           if (active) {
-            active.style.color = "var(--accent)";
-            active.style.background = "var(--accent-bg)";
+            active.setAttribute("aria-current", "location");
           }
         }
       });

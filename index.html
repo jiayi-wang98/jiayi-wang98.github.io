@@ -18,11 +18,12 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="#top" class="nav-brand">Jiayi Wang</a>
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#news">News</a>
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
@@ -33,10 +34,10 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
-          <span class="theme-icon">🌙</span>
+        <button id="themeToggle" class="icon-btn" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5a8.5 8.5 0 1 0 10.8 10.8Z"/></svg>
         </button>
-        <button id="menuToggle" class="icon-btn menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <button id="menuToggle" class="icon-btn menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -48,24 +49,22 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">Ph.D. Student · Department of Electrical and Computer Engineering @ University of Washington</p>
+          <p class="eyebrow">Electrical &amp; Computer Engineering · University of Washington</p>
           <h1>Jiayi Wang <span class="name-zh">(王嘉屹)</span></h1>
           <p class="hero-tagline">
-            I'm a Ph.D. student in Electrical &amp; Computer Engineering at the University of Washington,
-            focusing on <strong>reconfigurable AI hardware architectures and GPU-like massively parallel systems</strong>.
-            My work spans the full stack — architecture, microarchitecture, compilers, RTL, and silicon
-            tape-out — to build energy-efficient accelerators for general-purpose, AI, and HPC workloads.
+            I am a Ph.D. student at the University of Washington, advised by
+            <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> in the
+            <a href="https://pncel.github.io/" target="_blank" rel="noopener">Pᴺ Computer Engineering Lab</a>.
+            I research <strong>energy-efficient computer architectures for AI and general-purpose computing</strong>,
+            with a focus on reconfigurable accelerators and GPU-like parallel systems.
+            My work spans architecture and compiler design, performance and power modeling, RTL implementation, and silicon tape-out.
           </p>
           <p class="hero-tagline">
-            I earned my B.S. in Electrical Engineering (power electronics) from Shanghai Jiao Tong University
-            and my M.S. from the University of Washington. Along the way I've interned at
-            <strong>Intel</strong> and <strong>Qualcomm</strong>, and I'm currently a Compute Performance Intern at <strong>NVIDIA</strong>.
+            I received my B.S. in Electrical Engineering from Shanghai Jiao Tong University and my M.S. from
+            the University of Washington. I have interned at Intel and Qualcomm, and am currently a
+            Compute Performance Intern at NVIDIA.
           </p>
-          <div class="hero-meta">
-            <span>📍 University of Washington, Seattle</span>
-            <span>🎓 Advised by <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a></span>
-            <span>🔬 Research Lab: <a href="https://pncel.github.io/" target="_blank" rel="noopener">Pᴺ Computer Engineering Lab (PNCEL)</a></span>
-          </div>
+          <p class="availability"><strong>Summer 2027:</strong> I am seeking research internships in GPU architecture, AI accelerators, and performance modeling.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#publications">View Publications</a>
             <a class="btn btn-ghost" href="files/Jiayi_Wang_CV.pdf" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5v-2z"/></svg>Download CV (PDF)</a>
@@ -81,12 +80,10 @@
         </div>
         <aside class="hero-card">
           <img class="avatar" src="images/avatar.jpg" alt="Jiayi Wang" width="150" height="150" />
-          <h3>At a glance</h3>
+          <h3>Jiayi Wang</h3>
           <dl class="facts">
-            <div><dt>Now</dt><dd>Ph.D. in Computer Architecture, University of Washington (2023-2028 expected)</dd></div>
-            <div><dt>Intern</dt><dd>Compute Performance Intern, NVIDIA (Summer 2026)</dd></div>
-            <div><dt>Focus</dt><dd>AI hardware · CGRA/FPGA · GPGPU · digital VLSI</dd></div>
-            <div><dt>Tape-outs</dt><dd>TSMC 180nm &amp; N28 — RTL to signoff</dd></div>
+            <div><dt>Ph.D. Student</dt><dd>University of Washington<br />Seattle, WA</dd></div>
+            <div><dt>Silicon experience</dt><dd>TSMC 180nm &amp; N28<br />RTL to signoff</dd></div>
           </dl>
         </aside>
       </div>
@@ -113,6 +110,10 @@
             <span class="news-date">Jun 2026</span>
             <span class="news-text">Our poster <a href="#pub-dora-oscar"><em>DORA: Open-Source Infrastructure for Prototyping Reconfigurable Fabrics</em></a> is accepted to the <strong>OSCAR 2026</strong> workshop co-located with ISCA 2026, Raleigh, NC.</span>
           </li>
+        </ul>
+        <details class="news-archive">
+          <summary>Earlier updates</summary>
+          <ul class="news">
           <li>
             <span class="news-date">Jun 2026</span>
             <span class="news-text">Joining <strong>NVIDIA</strong> as a Compute Performance Intern this summer.</span>
@@ -153,7 +154,8 @@
             <span class="news-date">Nov 2024</span>
             <span class="news-text">Passed my Ph.D. <strong>qualifying exam</strong> at the University of Washington.</span>
           </li>
-        </ul>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -214,7 +216,7 @@
     <section id="publications" class="section section-alt">
       <div class="container">
         <h2 class="section-title">Publications</h2>
-        <p class="section-lead"><strong>Jiayi Wang</strong> highlighted in bold. See <a href="https://github.com/jiayi-wang98" target="_blank" rel="noopener">GitHub</a> for code and the full CV.</p>
+        <p class="section-lead">My name is highlighted in bold. <a href="files/Jiayi_Wang_CV.pdf" target="_blank" rel="noopener">Full CV (PDF)</a> · <a href="https://github.com/jiayi-wang98" target="_blank" rel="noopener">Code on GitHub</a></p>
 
         <h3 class="subhead">First-Author Publications &amp; Workshops</h3>
         <ol class="pubs">
@@ -254,7 +256,7 @@
         </ol>
 
         <h3 class="subhead">Collaborative Publications</h3>
-        <ol class="pubs" start="7">
+        <ol class="pubs pubs-collaborative" start="7">
           <li id="pub-cacheflex-micro">
             <p class="pub-title">CacheFlex: Direct Software-Managed Access to Higher-Level Cache for Scalable Vector Support</p>
             <p class="pub-authors">Jingqun Zhang, Maohua Nie, <strong>Jiayi Wang</strong>, Weihang Li, Rishi Sappidi, Shwet Chitnis, and Ang Li</p>
@@ -315,11 +317,12 @@
               <h3>Reconfigurable AI Hardware &amp; Accelerator Microarchitecture Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Aug 2025 – Present</span>
             </header>
-            <p>AI workloads now mix FP32/BF16/FP8/FP4, block-scaled (MX) and integer formats, and LLM serving produces small, odd-shaped GEMMs that leave large accelerators idle. This project builds multi-format, reconfigurable accelerator building blocks, from the ALU up to the systolic array, so one design stays efficient across all of them.</p>
+            <p>I design reconfigurable arithmetic units and systolic arrays for AI workloads with diverse numerical formats and matrix shapes. My work spans shared datapaths for mixed-precision computation, native block-scaling support, and flexible arrays for small, non-square GEMMs in LLM serving.</p>
             <ul>
-              <li><strong>ALU level — TransDot:</strong> one reconfigurable floating-point unit covering FP4/FP8/FP16/FP32 FMA, subword SIMD, and FP16/FP32 dot-product accumulation, replacing per-format FPUs in FPGA AI engines.</li>
-              <li><strong>Systolic-array level — MFSA &amp; piPE-SA:</strong> MFSA is a weight-stationary multi-format systolic array whose PEs share one dot-product datapath across FP32 to FP4/INT4, with <em>online block-scale rebasing</em> that folds MX/NVFP4 block scales into the running partial sum at about a third of the naive overhead; piPE-SA keeps weight-/output-stationary timing correct with multi-stage pipelined PEs, making PE pipeline depth a design axis alongside array size and dataflow.</li>
-              <li><strong>Fracturable, skew-free systolic array (ongoing):</strong> a twisted-torus fabric with an orthogonal wavefront that removes the diagonal skew of classical arrays and can be partitioned at runtime into independently scheduled strips, recovering utilization on the small and non-square GEMMs of LLM serving.</li>
+              <li><strong>TransDot — reconfigurable arithmetic:</strong> developed a unified FPU supporting FP4/FP8/FP16/FP32 fused multiply-add, subword SIMD, and dot products with FP16/FP32 accumulation, replacing separate per-format FPUs in FPGA AI engines.</li>
+              <li><strong>MFSA — multi-format systolic arrays:</strong> designed a weight-stationary array with a shared dot-product datapath supporting formats from FP32 to FP4/INT4. Introduced <em>online block-scale rebasing</em> to incorporate MX/NVFP4 scales directly into partial sums and reduce block-scaling overhead.</li>
+              <li><strong>piPE-SA — pipelined processing elements:</strong> developed timing support for multi-stage PEs in weight- and output-stationary arrays, enabling exploration of PE pipeline depth alongside array size and dataflow.</li>
+              <li><strong>Flexible arrays (ongoing):</strong> designing a twisted-torus fabric with an orthogonal wavefront to eliminate diagonal data skew and support runtime partitioning into independently scheduled strips, targeting higher utilization on small, non-square GEMMs.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-mfsa-iccd">MFSA</a> <span class="badge badge-conf">ICCD 2026</span></span> ·
@@ -334,12 +337,12 @@
               <h3>High-Efficiency CGRA–GPU/CPU Integration Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Oct 2024 – Present</span>
             </header>
-            <p>SIMT is the most productive way to program massively parallel hardware, but GPUs spend much of their energy on register files and per-instruction control. This project fuses statically scheduled CGRAs with SIMT execution to keep the CUDA programming model while cutting that overhead, on both GPUs and CPUs.</p>
+            <p>I combine statically scheduled CGRAs with SIMT execution to reduce register-file traffic and instruction-control overhead while preserving the CUDA programming model. This work connects architecture design, compiler development, performance and power modeling, and RTL/FPGA prototyping.</p>
             <ul>
-              <li><strong>DICE (GPU side):</strong> replaces the SM's SIMD backend with statically scheduled CGRAs, adding a Temporal Memory Coalescing Unit and swizzled thread-bank mapping to remove register-file bank conflicts; <strong>1.90× energy efficiency, 42% lower power, 1.16× performance</strong> vs. NVIDIA Turing SMs. Filed as a U.S. provisional patent.</li>
-              <li><strong>Compiler &amp; modeling:</strong> built a <em>p-graph</em> compiler and, with STEP, the spatially threaded execution pipeline that maps SIMT kernels onto the fabric; extended GPGPU-Sim/GPUWattch for performance and power evaluation on GPU-Rodinia.</li>
-              <li><strong>CPU side (ongoing):</strong> a core-private SIMT engine on the same reconfigurable substrate, attached to each CPU core's cache hierarchy with an in-memory thread-launch structure, so fine-grained irregular kernels run without driver launches or explicit data movement.</li>
-              <li><strong>Leadership:</strong> led an 8-member RTL team to build the RTL implementation and FPGA prototype for architectural validation.</li>
+              <li><strong>DICE — GPU architecture:</strong> designed a CGRA-based replacement for the SM's SIMD backend, with a Temporal Memory Coalescing Unit for pipelined memory access and swizzled thread-bank mapping to reduce register-file bank conflicts.</li>
+              <li><strong>Performance &amp; energy:</strong> achieved <strong>1.90× energy efficiency, 42% lower power, and 1.16× performance</strong> relative to a modeled NVIDIA Turing SM baseline in GPU-Rodinia evaluation using GPGPU-Sim/GPUWattch. DICE is the subject of a U.S. provisional patent application.</li>
+              <li><strong>Compiler &amp; implementation:</strong> built a <em>p-graph</em> compiler, contributed to STEP for mapping SIMT kernels onto the spatial fabric, and extended GPGPU-Sim/GPUWattch for evaluation. Led an <strong>8-member RTL team</strong> developing the RTL implementation and FPGA prototype for architectural validation.</li>
+              <li><strong>CPU integration (ongoing):</strong> developing a core-private SIMT engine connected to each CPU core's cache hierarchy, with an in-memory thread-launch mechanism to support fine-grained irregular kernels without driver launches or explicit data transfers.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-dice-isca">DICE</a> <span class="badge badge-conf">ISCA 2026</span></span> ·
@@ -354,10 +357,10 @@
               <h3>Coarse-Grained Reconfigurable Architecture Framework Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Mar 2024 – Present</span>
             </header>
-            <p>Exploring the CGRA design space normally means rewriting RTL for every processing-element, routing, or control variant. This project builds open-source infrastructure that makes reconfigurable fabrics fast to generate, evaluate, and prototype.</p>
+            <p>I develop reusable infrastructure for generating and prototyping CGRAs, enabling architecture exploration through configurable processing elements, interconnects, and control logic.</p>
             <ul>
-              <li><strong>DORA:</strong> a Python-based, highly parameterized CGRA RTL generator with customizable processing elements, routing networks, and control flow; used across the lab's CGRA projects for rapid architecture exploration and FPGA prototyping.</li>
-              <li><strong>Precision-aware communication:</strong> studied how operand precision can shape data movement and interconnect design in CGRAs.</li>
+              <li><strong>RTL generation:</strong> built a parameterized Python framework for customizing processing elements, routing networks, and control flow; used across the lab's CGRA projects for architecture exploration and FPGA prototyping.</li>
+              <li><strong>Precision-aware communication:</strong> investigated how operand precision informs data movement and interconnect design in CGRAs.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-dora-oscar">DORA</a> <span class="badge badge-ws">OSCAR 2026</span></span> ·
@@ -370,11 +373,11 @@
               <h3>GPU Multi-Tenant Power Management Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · 2026 – Present</span>
             </header>
-            <p>Datacenter GPUs run under power caps and are increasingly shared across tenants, yet partitions such as MIG still share one device-wide cap and clock. When one tenant drives the GPU to the cap, the DVFS governor throttles everyone, and a latency-critical neighbor misses its target.</p>
+            <p>I investigate how shared GPU power limits create interference between co-located LLM workloads, and how per-tenant power management can protect latency-sensitive inference.</p>
             <ul>
-              <li><strong>Characterization:</strong> measured on H100/B200-class GPUs how a co-located tenant's power draw inflates a prioritized neighbor's time-to-first-token under power caps.</li>
-              <li><strong>Approach:</strong> make power an explicitly managed per-tenant resource: per-partition power metering, independent per-GPC voltage/frequency control, and a power arbiter that sets budgets by tenant priority and phase, updates them at sub-millisecond intervals, and lends unused budget.</li>
-              <li><strong>Evaluation:</strong> a serving simulator driven by real LLM traces, with a power model calibrated on H100 and B200, shows the prioritized tenant's latency restored to near its standalone value.</li>
+              <li><strong>Hardware characterization:</strong> measured power-induced interference on H100/B200-class GPUs, examining how a co-located workload increases a prioritized tenant's time-to-first-token under a shared power cap.</li>
+              <li><strong>Architecture proposal:</strong> proposed per-partition power metering and independent per-GPC voltage/frequency control, coordinated by a power arbiter that reallocates budgets at sub-millisecond intervals based on tenant priority, execution phase, and unused capacity.</li>
+              <li><strong>Simulation results:</strong> evaluated the design using real LLM traces and a serving simulator with power models calibrated on H100 and B200. In simulation, the design restored the prioritized tenant's latency to near its standalone value.</li>
             </ul>
           </article>
 
@@ -383,11 +386,11 @@
               <h3>AI Agent Development</h3>
               <span class="project-meta">SABOL Vision Lab, Cultivate Learning · PI Prof. Gail E. Joseph · Feb 2026 – Present</span>
             </header>
-            <p><strong>VISTA</strong> (Video Interaction Scoring &amp; Teaching Assistant): multimodal AI agents for early-childhood classrooms that turn classroom video into interaction-quality scores and real-time coaching for teachers.</p>
+            <p>I build multimodal AI agents that analyze classroom video to assess teacher–child interactions and support real-time teacher coaching. <strong>VISTA</strong> (Video Interaction Scoring &amp; Teaching Assistant) combines video-based assessment with live audio/video analysis.</p>
             <ul>
-              <li><strong>VISTA-QEI:</strong> a video-analysis agent that scores teacher–child interactions with the QEI framework and writes evidence-based coaching reports.</li>
-              <li><strong>VISTA-RT:</strong> a real-time coaching agent with live video/audio analysis, rolling context memory, and prioritized prompts delivered through wearable interfaces.</li>
-              <li>Built the working demos and evaluation tools, and presented prototypes to AI and early-learning collaborators.</li>
+              <li><strong>VISTA-QEI:</strong> developed a video-analysis agent that scores teacher–child interactions using the QEI framework and generates coaching reports grounded in video evidence.</li>
+              <li><strong>VISTA-RT:</strong> designed a real-time coaching agent integrating live audio/video analysis, rolling context memory, and prioritized prompts delivered through wearable interfaces.</li>
+              <li><strong>Prototyping &amp; evaluation:</strong> implemented working demos and evaluation tools, and presented prototypes to collaborators in AI and early-childhood education.</li>
             </ul>
           </article>
 
@@ -396,11 +399,11 @@
               <h3>High-Speed Interface Integration Research</h3>
               <span class="project-meta">UW Silicon Systems Research Lab · PI <a href="https://people.ece.uw.edu/shi/" target="_blank" rel="noopener">Prof. C.-J. Richard Shi</a> · Mar 2022 – Dec 2023</span>
             </header>
-            <p><strong>CPHY</strong>: a DDR/UCIe-compatible PHY with an LPDDR4/4x memory controller, taken from RTL to a TSMC N28 tape-out and integrated into a RISC-V SoC.</p>
+            <p>I led RTL design and verification for <strong>CPHY</strong>, a DDR/UCIe-compatible PHY and LPDDR4/4x memory controller, and carried out physical design and SoC integration for a TSMC N28 tape-out.</p>
             <ul>
-              <li>Led RTL design, mixed-signal integration, and verification of the memory controller and PHY.</li>
-              <li>Performed physical design in TSMC N28, including analog/mixed-signal integration.</li>
-              <li>Integrated the controller and PHY with a RISC-V CPU and a deep-learning accelerator.</li>
+              <li><strong>Design &amp; verification:</strong> led RTL development, mixed-signal integration, and verification of the memory controller and PHY.</li>
+              <li><strong>Physical design:</strong> performed TSMC N28 physical implementation, including analog/mixed-signal integration, through tape-out.</li>
+              <li><strong>SoC integration:</strong> integrated the controller and PHY with a RISC-V CPU and a deep-learning accelerator.</li>
             </ul>
           </article>
         </div>
@@ -581,8 +584,8 @@
     <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="section">
       <div class="container contact">
-        <h2 class="section-title">Get in touch</h2>
-        <p class="section-lead">Happy to chat about computer architecture, reconfigurable computing, AI systems, or collaborations.</p>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-lead">For research collaborations or Summer 2027 internship opportunities, please contact me by email.</p>
         <div class="contact-links">
           <a class="btn btn-primary" href="mailto:jwang710@uw.edu"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>jwang710@uw.edu</a>
           <a class="btn btn-ghost" href="mailto:jiayi.wang98@outlook.com"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>jiayi.wang98@outlook.com</a>
@@ -598,7 +601,6 @@
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Jiayi Wang · University of Washington, Seattle</p>
-      <p class="muted">Built with plain HTML, CSS &amp; JS · Hosted on GitHub Pages</p>
     </div>
   </footer>
 
