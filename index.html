@@ -312,63 +312,53 @@
         <div class="projects">
           <article class="project">
             <header class="project-head">
-              <h3>RTA — Reconfigurable Tensor Arrays</h3>
+              <h3>Reconfigurable AI Hardware &amp; Accelerator Microarchitecture Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Aug 2025 – Present</span>
             </header>
-            <p>Reconfigurable tensor arrays for multiprecision AI and general-purpose computing.</p>
+            <p>AI workloads now mix FP32/BF16/FP8/FP4, block-scaled (MX) and integer formats, and LLM serving produces small, odd-shaped GEMMs that leave large accelerators idle. This project builds multi-format, reconfigurable accelerator building blocks, from the ALU up to the systolic array, so one design stays efficient across all of them.</p>
             <ul>
-              <li>Designed a twisted-torus systolic array that eliminates shifter registers and reduces latency vs. conventional systolic arrays.</li>
-              <li>Built a reconfigurable PE supporting general-purpose vector operations beyond matmul, improving utilization across diverse AI workloads.</li>
-              <li>Developed <strong>TransDot</strong>: a reconfigurable FPU supporting FP4/FP8/FP16/FP32 FMA, subword SIMD, and FP16/FP32 dot-product accumulation.</li>
+              <li><strong>ALU level — TransDot:</strong> one reconfigurable floating-point unit covering FP4/FP8/FP16/FP32 FMA, subword SIMD, and FP16/FP32 dot-product accumulation, replacing per-format FPUs in FPGA AI engines.</li>
+              <li><strong>Systolic-array level — MFSA:</strong> a weight-stationary multi-format systolic array whose PEs share one dot-product datapath across FP32 to FP4/INT4, with <em>online block-scale rebasing</em> that folds MX/NVFP4 block scales into the running partial sum; cuts the block-scaling overhead by roughly two thirds in area and energy versus a naive implementation.</li>
+              <li><strong>Systolic-array level — piPE-SA:</strong> a pipeline-aware systolic array that keeps weight-/output-stationary timing correct with multi-stage pipelined PEs, so PE pipeline depth becomes a design axis alongside array size and dataflow for higher frequency and better area/power efficiency.</li>
+              <li><strong>Fracturable, skew-free systolic array (ongoing):</strong> a twisted-torus fabric with an orthogonal wavefront that removes the diagonal skew of classical arrays and can be partitioned at runtime into independently scheduled strips, recovering utilization on the small and non-square GEMMs of LLM serving.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-mfsa-iccd">MFSA</a> <span class="badge badge-conf">ICCD 2026</span></span> ·
               <span class="pub-ref"><a href="#pub-transdot">TransDot</a> <span class="badge badge-conf">FCCM 2026</span></span> ·
-              <span class="pub-ref"><a href="#pub-pipe-sa">piPE-SA</a> <span class="badge badge-ws">EMC²-11</span></span>
+              <span class="pub-ref"><a href="#pub-pipe-sa">piPE-SA</a> <span class="badge badge-ws">EMC²-11</span></span> ·
+              <span class="pub-ref"><span class="badge badge-review">1 paper under review</span></span>
             </div>
           </article>
 
           <article class="project">
             <header class="project-head">
-              <h3>VISTA — Video Interaction Scoring &amp; Teaching Assistant</h3>
-              <span class="project-meta">SABOL Vision Lab, Cultivate Learning · PI Prof. Gail E. Joseph · Feb 2026 – Present</span>
-            </header>
-            <p>A multimodal AI system for early-childhood classrooms enabling automated interaction-quality scoring and low-latency teacher coaching.</p>
-            <ul>
-              <li><strong>VISTA-QEI</strong>: a video analysis pipeline scoring teacher–child interactions with the QEI framework and generating evidence-based coaching reports.</li>
-              <li><strong>VISTA-RT</strong>: a real-time coaching system with live video/audio analysis, rolling context memory, and prioritized prompts via wearable interfaces.</li>
-              <li>Implemented working demos and evaluation tools; presented prototypes to interdisciplinary AI and early-learning collaborators.</li>
-            </ul>
-          </article>
-
-          <article class="project">
-            <header class="project-head">
-              <h3>DICE — CUDA-Compatible CGRA-Based GPGPU</h3>
+              <h3>High-Efficiency CGRA–GPU/CPU Integration Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Oct 2024 – Present</span>
             </header>
-            <p>An energy-efficient GPGPU that replaces the SIMD backend with statically scheduled CGRAs.</p>
+            <p>SIMT is the most productive way to program massively parallel hardware, but GPUs spend much of their energy on register files and per-instruction control. This project fuses statically scheduled CGRAs with SIMT execution to keep the CUDA programming model while cutting that overhead, on both GPUs and CPUs.</p>
             <ul>
-              <li>Reduced register-file pressure and control overhead via a CGRA-based execution backend.</li>
-              <li>Built a Temporal Memory Coalescing Unit (TMCU) and swizzled thread-bank mapping to cut register-file bank conflicts.</li>
-              <li>Extended GPGPU-Sim/GPUWattch and built a <em>p-graph</em> compiler for performance/power modeling on GPU-Rodinia.</li>
-              <li>Led an 8-member RTL team to build an RTL implementation and FPGA prototype for architectural validation.</li>
-              <li><strong>1.90× energy efficiency, 42% lower power, 1.16× performance</strong> vs. NVIDIA Turing SMs.</li>
+              <li><strong>DICE (GPU side):</strong> replaces the SM's SIMD backend with statically scheduled CGRAs, adding a Temporal Memory Coalescing Unit and swizzled thread-bank mapping to remove register-file bank conflicts; <strong>1.90× energy efficiency, 42% lower power, 1.16× performance</strong> vs. NVIDIA Turing SMs. Filed as a U.S. provisional patent.</li>
+              <li><strong>Compiler &amp; modeling:</strong> built a <em>p-graph</em> compiler and, with STEP, the spatially threaded execution pipeline that maps SIMT kernels onto the fabric; extended GPGPU-Sim/GPUWattch for performance and power evaluation on GPU-Rodinia.</li>
+              <li><strong>CPU side (ongoing):</strong> a core-private SIMT engine on the same reconfigurable substrate, attached to each CPU core's cache hierarchy with an in-memory thread-launch structure, so fine-grained irregular kernels run without driver launches or explicit data movement.</li>
+              <li><strong>Leadership:</strong> led an 8-member RTL team to build the RTL implementation and FPGA prototype for architectural validation.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-dice-isca">DICE</a> <span class="badge badge-conf">ISCA 2026</span></span> ·
-              <span class="pub-ref"><a href="#pub-dice-gpgpu">DICE (thread-pipelined SIMT)</a> <span class="badge badge-ws">GPGPU 2026</span></span>
+              <span class="pub-ref"><a href="#pub-dice-gpgpu">DICE (thread-pipelined SIMT)</a> <span class="badge badge-ws">GPGPU 2026</span></span> ·
+              <span class="pub-ref"><a href="#pub-step">STEP</a> <span class="badge badge-ws">LATTE 2026</span></span> ·
+              <span class="pub-ref"><span class="badge badge-review">1 paper under review</span></span>
             </div>
           </article>
 
           <article class="project">
             <header class="project-head">
-              <h3>DORA — Python-Based CGRA Prototyping Framework</h3>
+              <h3>Coarse-Grained Reconfigurable Architecture Framework Research</h3>
               <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · Mar 2024 – Present</span>
             </header>
-            <p>A highly parameterized CGRA RTL generation framework for rapid architecture exploration.</p>
+            <p>Exploring the CGRA design space normally means rewriting RTL for every processing-element, routing, or control variant. This project builds open-source infrastructure that makes reconfigurable fabrics fast to generate, evaluate, and prototype.</p>
             <ul>
-              <li>Enabled rapid customization of processing elements, routing networks, and control flows.</li>
-              <li>Accelerated CGRA prototyping through reusable Python-based hardware generation infrastructure.</li>
+              <li><strong>DORA:</strong> a Python-based, highly parameterized CGRA RTL generator with customizable processing elements, routing networks, and control flow; used across the lab's CGRA projects for rapid architecture exploration and FPGA prototyping.</li>
+              <li><strong>Precision-aware communication:</strong> studied how operand precision can shape data movement and interconnect design in CGRAs.</li>
             </ul>
             <div class="project-pubs"><span class="label">Related publications:</span>
               <span class="pub-ref"><a href="#pub-dora-oscar">DORA</a> <span class="badge badge-ws">OSCAR 2026</span></span> ·
@@ -378,13 +368,39 @@
 
           <article class="project">
             <header class="project-head">
-              <h3>CPHY — DDR/UCIe-Compatible PHY &amp; LPDDR4x Controller</h3>
+              <h3>GPU Multi-Tenant Power Management Research</h3>
+              <span class="project-meta"><a href="https://pncel.github.io/" target="_blank" rel="noopener">UW Pᴺ Computer Engineering Lab</a> · PI <a href="https://pncel.github.io/team/ang" target="_blank" rel="noopener">Prof. Ang Li</a> · 2026 – Present</span>
+            </header>
+            <p>Datacenter GPUs run under power caps and are increasingly shared across tenants, yet partitions such as MIG still share one device-wide cap and clock. When one tenant drives the GPU to the cap, the DVFS governor throttles everyone, and a latency-critical neighbor misses its target.</p>
+            <ul>
+              <li><strong>Characterization:</strong> measured on H100/B200-class GPUs how a co-located tenant's power draw inflates a prioritized neighbor's time-to-first-token under power caps.</li>
+              <li><strong>Approach:</strong> make power an explicitly managed per-tenant resource: per-partition power metering, independent per-GPC voltage/frequency control, and a power arbiter that sets budgets by tenant priority and phase, updates them at sub-millisecond intervals, and lends unused budget.</li>
+              <li><strong>Evaluation:</strong> a serving simulator driven by real LLM traces, with a power model calibrated on H100 and B200, shows the prioritized tenant's latency restored to near its standalone value.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <header class="project-head">
+              <h3>AI Agent Development</h3>
+              <span class="project-meta">SABOL Vision Lab, Cultivate Learning · PI Prof. Gail E. Joseph · Feb 2026 – Present</span>
+            </header>
+            <p><strong>VISTA</strong> (Video Interaction Scoring &amp; Teaching Assistant): multimodal AI agents for early-childhood classrooms that turn classroom video into interaction-quality scores and real-time coaching for teachers.</p>
+            <ul>
+              <li><strong>VISTA-QEI:</strong> a video-analysis agent that scores teacher–child interactions with the QEI framework and writes evidence-based coaching reports.</li>
+              <li><strong>VISTA-RT:</strong> a real-time coaching agent with live video/audio analysis, rolling context memory, and prioritized prompts delivered through wearable interfaces.</li>
+              <li>Built the working demos and evaluation tools, and presented prototypes to AI and early-learning collaborators.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <header class="project-head">
+              <h3>High-Speed Interface Integration Research</h3>
               <span class="project-meta">UW Silicon Systems Research Lab · PI <a href="https://people.ece.uw.edu/shi/" target="_blank" rel="noopener">Prof. C.-J. Richard Shi</a> · Mar 2022 – Dec 2023</span>
             </header>
-            <p>Memory controller and high-speed PHY taped out in TSMC N28.</p>
+            <p><strong>CPHY</strong>: a DDR/UCIe-compatible PHY with an LPDDR4/4x memory controller, taken from RTL to a TSMC N28 tape-out and integrated into a RISC-V SoC.</p>
             <ul>
-              <li>Led RTL design, mixed-signal integration, and verification of an LPDDR4/4x memory controller and DDR/UCIe-compatible PHY.</li>
-              <li>Performed physical design in TSMC N28, including AMS integration.</li>
+              <li>Led RTL design, mixed-signal integration, and verification of the memory controller and PHY.</li>
+              <li>Performed physical design in TSMC N28, including analog/mixed-signal integration.</li>
               <li>Integrated the controller and PHY with a RISC-V CPU and a deep-learning accelerator.</li>
             </ul>
           </article>
