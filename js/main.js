@@ -74,7 +74,7 @@
           }
         }
       });
-    }, { rootMargin: "-45% 0px -50% 0px" });
+    }, { rootMargin: "-32px 0px -75% 0px" });
 
     Object.keys(map).forEach(function (id) {
       observer.observe(document.getElementById(id));
